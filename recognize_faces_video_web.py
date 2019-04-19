@@ -25,6 +25,8 @@ ap.add_argument("-e", "--encodings", required=True,
 	help="path to serialized db of facial encodings")
 ap.add_argument("-i", "--input", required=True,
 	help="path to input video")
+ap.add_argument("-r", "--rotate", type=int, default=-1,
+	help="rotate the input image to portrate")
 ap.add_argument("-y", "--display", type=int, default=1,
 	help="whether or not to display output frame to screen")
 ap.add_argument("-d", "--detection-method", type=str, default="cnn",
@@ -56,6 +58,11 @@ while True:
 
     if np.shape(frame) != ():
         if frame.shape[0] > 0 and frame.shape[1] > 0:
+
+            #rotate image
+            if (args["rotate"] == 1 or args["rotate"] == 0):
+                frame = cv2.transpose(frame)
+                frame = cv2.flip(frame,flipCode=args["rotate"])
         
             if args["display"] > 0:
                 cv2.imshow("img", frame)

@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=true
+Exec=bash /home/pi/Documents/face-recognition-openCV/run_recognize_stream.sh
+Name=Doorman
+Comment=Face recognition trained on family and friends photos
+Icon=/home/pi/Documents/face-recognition-openCV/icon.png
+Path=/home/pi/Documents/face-recognition-openCV/
